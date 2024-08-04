@@ -1,0 +1,1 @@
+export const storage = Object.create({}) // handler storage

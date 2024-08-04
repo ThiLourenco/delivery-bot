@@ -32,3 +32,22 @@ export const stepTwo = {
     await VenomBot.getInstance().sendText({ to: params.from, message: msg })
   },
 }
+
+const options = {
+  '*': () => {
+    const message = '🔴 O Pedido foi *CANCELADO* com sucesso. \n\n ```Volte para realizar um novo pedido !!```'
+    return {
+      message,
+      nextStep: STEPS.INICIAL,
+    }
+  },
+  '#': () => {
+    const message = '🗺️ Agora, informe o *ENDEREÇO* completo. \n ( ```Rua, Número, Bairro``` ) \n\n ' +
+    '\n-----------------------------------\n*️⃣ - ```Para CANCELAR o pedido```'
+
+    return {
+      message,
+      nextStep: STEPS.RESUMO,
+    }
+  }
+}
